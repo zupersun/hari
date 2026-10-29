@@ -1,0 +1,15 @@
+# GitHub shows every committed file; this only affects the language statistics
+# bar and whether a file is collapsed by default in diffs.
+
+# Implementation plans are prose, not source.
+docs/**            linguist-documentation
+*.md               linguist-documentation
+
+# Generated: never counted, collapsed in diffs.
+uv.lock            linguist-generated
+packaging/*.spec   linguist-generated
+
+# The phone client is the product's UI, so it should count as source. It lives at
+# web/app; src/phice/web is a symlink to it, so that path matches nothing.
+web/app/*.js       linguist-detectable
+web/api/*.js       linguist-detectable

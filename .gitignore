@@ -1,0 +1,44 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.bak
+.DS_Store
+
+# PyInstaller build output
+/build/
+/dist/
+
+# agent tooling state, regenerated every session
+.claude-flow/
+.claude/
+
+# isolated worktrees for plan execution
+.worktrees/
+
+# web/ (Vercel project) build artifacts
+node_modules/
+.vercel/
+.vercel
+.env*
+
+# visual brainstorming session files
+.superpowers/
+
+# drawn at build time from the mark
+packaging/AppIcon.icns
+packaging/AppIcon.iconset/
+
+# agent memory stores, regenerated per session
+.swarm/
+*.rvf
+*.rvf.lock
+ruvector.db
+
+# Swift and Xcode; the app projects are generated from Apps/project.yml
+.build/
+.swiftpm/
+Apps/*.xcodeproj/
+DerivedData/
+*.xcuserstate
