@@ -8,10 +8,8 @@ agent is meant to be forgotten.
 - Design (approved mockups, including the animated swallow):
   https://claude.ai/artifact/ABsR71QBPUtLGgDbPhjzhn
 - Build plan, decisions and phases: `~/.claude/plans/i-want-to-build-shimmering-pudding.md`
-- The Python air mouse this replaces is archived on branch `air-mouse` (its last release
-  is `v0.2.1`), to be built on later: `git worktree add .worktrees/air-mouse air-mouse` checks it
-  out. `web/` stays until the Swift version ships: Vercel deploys the
-  hosted page from it.
+- The Python air mouse this replaces lives on in https://github.com/zupersun/phice (release
+  `v0.2.1`), to be built on later.
 
 ## Commands
 
@@ -22,7 +20,6 @@ xcodebuild -project Apps/Phice.xcodeproj -scheme PhiceMac -derivedDataPath .buil
   CODE_SIGNING_ALLOWED=NO build               # dev builds unsigned: signing prompts for the keychain
 xcodebuild -project Apps/Phice.xcodeproj -scheme PhiceiOS -derivedDataPath .build/xcode \
   -destination 'platform=iOS Simulator,name=iPhone 18 Pro' build
-./scripts/deploy-web.sh                       # the old hosted page, until it is retired
 ```
 
 After a merge that changes `Sources/`, Xcode can keep building against a stale PhiceKit and
@@ -85,7 +82,7 @@ Carried over from the Python version, where each was learned the hard way, plus 
    applies Natural only to real devices; Scroll Reverser, Mos and LinearMouse negate any event
    that looks like a mouse's, posted ones included. The poster tags each scroll event it posts,
    watches it come out of a listen-only tap behind every reverser, and pre-flips the next ones
-   when the sign has flipped. Port it from `src/phice/cursor_backend.py` on `air-mouse`.
+   when the sign has flipped. Port it from `src/phice/cursor_backend.py` in phice.
    Do not replace it with reading `com.apple.swipescrolldirection`.
 3. **Never change `com.phice.app` and never lose the "Phice Self Signed" certificate.** macOS
    keys the Accessibility grant to the designated requirement (identifier + certificate root);
@@ -123,7 +120,6 @@ Carried over from the Python version, where each was learned the hard way, plus 
 | Service | Plan | Status |
 |---|---|---|
 | GitHub | free | the repo |
-| Vercel + Redis Cloud | free tiers (Vercel Hobby is non-commercial) | the old hosted page; retire once the Swift version ships |
 | Apple Developer Program | $99/yr | needed for TestFlight, the App Store and notarizing the Mac agent; not yet enrolled |
 
 ## Conventions
